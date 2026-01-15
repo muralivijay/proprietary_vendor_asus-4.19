@@ -12,11 +12,8 @@ on boot
     write /proc/sys/net/core/rmem_max  16777216
     write /proc/sys/net/core/wmem_max  8388608
 
-    #Load rmnet_core driver
-    exec u:r:vendor_modprobe:s0 -- /vendor/bin/modprobe -a -d /vendor/lib/modules rmnet_ctl
-    exec u:r:vendor_modprobe:s0 -- /vendor/bin/modprobe -a -d /vendor/lib/modules rmnet_core
-    exec u:r:vendor_modprobe:s0 -- /vendor/bin/modprobe -a -d /vendor/lib/modules/5.4-gki rmnet_ctl
-    exec u:r:vendor_modprobe:s0 -- /vendor/bin/modprobe -a -d /vendor/lib/modules/5.4-gki rmnet_core
+    # Start netmgrd
+    start vendor.netmgrd
 
 # msm specific files that need to be created on /data
 on post-fs-data
@@ -34,8 +31,10 @@ on post-fs-data
 on property:persist.vendor.data.mode=disabled
     stop vendor.netmgrd
 
-service vendor.netmgrd /system/vendor/bin/netmgrd
+service vendor.netmgrd /vendor/bin/netmgrd
     class main
+    user root
+    group root wifi wakelock radio inet net_raw net_admin system oem_2950
 
 on property:ro.vendor.use_data_netmgrd=false
     # netmgr not supported on specific target
