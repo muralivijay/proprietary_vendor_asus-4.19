@@ -309,6 +309,7 @@ PRODUCT_PACKAGES += \
     libmmcamera_tintless_bg_pca_algo \
     libmmcamera_tuning \
     libmmcamera_tuning_lookup \
+    libmmcamera_arcsoftbokeh_lib \
     libmmjpeg \
     libmmqjpeg_codec \
     libmmqjpegdma \
