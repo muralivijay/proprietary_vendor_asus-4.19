@@ -332,7 +332,8 @@ PRODUCT_COPY_FILES += \
 
 # Vendor Manifest
 PRODUCT_PACKAGES += \
-    manifest_android.hardware.drm@1.3-service.widevine.xml
+    manifest_android.hardware.drm@1.3-service.widevine.xml \
+    android.hardware.light@2.0-service.xml
 
 # Vendor CNE configs
 PRODUCT_COPY_FILES += \
