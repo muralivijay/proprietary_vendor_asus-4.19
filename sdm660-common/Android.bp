@@ -26,15 +26,6 @@ prebuilt_etc_xml {
     soc_specific: true,
 }
 
-prebuilt_etc_xml {
-    name: "android.hardware.light@2.0-service.xml",
-    owner: "asus",
-    src: "proprietary/vendor/etc/vintf/manifest/android.hardware.light@2.0-service.xml",
-    filename_from_src: true,
-    sub_dir: "vintf/manifest",
-    soc_specific: true,
-}
-
 // Vendor binaries
 cc_prebuilt_binary {
     name: "adpl",
